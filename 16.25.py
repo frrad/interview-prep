@@ -53,7 +53,6 @@ class board:
         self.__downs[x][y] = self.above(x, y).children[letter]
 
     def filled(self):
-        print self
         if self.__downs[self.__x - 1][self.__y - 1] and self.__rights[self.__x - 1][self.__y - 1]:
             return self
         best_options = range(30)
