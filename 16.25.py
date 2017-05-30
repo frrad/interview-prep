@@ -143,12 +143,11 @@ for key in keys:
 
 
 max_seen = 0
-for x in keys:
-    for y in keys:
-        if x * y < max_seen:
-            continue
-        if x < y or y == 1:
-            continue
-        print x, y
-        if works(x, y, tries[x], tries[y]):
-            max_seen = x * y
+for i, (x, y) in enumerate(sorted([(x, y) for x in keys for y in keys], key=lambda (x, y): x * y)):
+    if x * y < max_seen:
+        continue
+    if x > y or x == 1:
+        continue
+    print i, ":", x, y
+    if works(x, y, tries[x], tries[y]):
+        max_seen = x * y
